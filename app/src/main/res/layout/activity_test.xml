@@ -27,7 +27,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:onClick="toCreateDialog"
                 android:text="弹出对话框"
                 android:textAllCaps="false"
@@ -36,7 +36,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:onClick="toTransparentActivity"
                 android:text="打开透明主题的 Activity"
                 android:textAllCaps="false"
@@ -45,7 +45,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:onClick="toScreenConfig"
                 android:text="打开配置屏幕旋转的 Activity"
                 android:textAllCaps="false"

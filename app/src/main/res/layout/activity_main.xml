@@ -19,9 +19,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
+                android:onClick="toActivity"
                 android:text="Activity"
                 android:textAllCaps="false"
-                android:onClick="toActivity"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toFragment"
+                android:text="Fragment"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toService"
+                android:text="Service"
+                android:textAllCaps="false"
                 android:theme="@style/Widget.AppCompat.Button" />
 
         </LinearLayout>

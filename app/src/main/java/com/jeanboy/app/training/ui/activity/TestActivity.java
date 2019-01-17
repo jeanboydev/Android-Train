@@ -17,6 +17,8 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import com.jeanboy.app.training.R;
 import com.jeanboy.app.training.base.BaseActivity;

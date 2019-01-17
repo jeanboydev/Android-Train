@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.ServiceActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:onClick="toStartService"
+                android:text="Start Service"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toStopService"
+                android:text="Stop Service"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toBindService"
+                android:text="Bind Service"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toUnbindService"
+                android:text="Unbind Service"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toStartForegroundService"
+                android:text="Start Foreground Service"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toStopForegroundService"
+                android:text="Stop Foreground Service"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toStartIntentService"
+                android:text="Start IntentService"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toStartAIDLService"
+                android:text="Start AIDL Service"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toStopAIDLService"
+                android:text="Stop AIDL Service"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

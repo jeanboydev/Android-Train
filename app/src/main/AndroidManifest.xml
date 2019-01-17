@@ -9,8 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.TransparentActivity"
-            android:theme="@style/translucent"></activity>
+        <service
+            android:name=".ui.service.AIDLService"
+            android:enabled="true"
+            android:exported="true"></service>
+        <service
+            android:name=".ui.service.TestIntentService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".ui.service.ForegroundService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".ui.service.TestService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".ui.activity.ServiceActivity" />
+        <activity android:name=".ui.activity.FragmentActivity" />
+        <activity
+            android:name=".ui.activity.TransparentActivity"
+            android:theme="@style/translucent" />
         <activity
             android:name=".ui.activity.ScreenConfigActivity"
             android:configChanges="orientation|keyboardHidden" />

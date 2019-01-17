@@ -21,7 +21,14 @@ public class MainActivity extends BaseActivity {
     }
 
     public void toActivity(View view) {
-        Intent intent = new Intent(this, TestActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, TestActivity.class));
+    }
+
+    public void toFragment(View view) {
+        startActivity(new Intent(this, FragmentActivity.class));
+    }
+
+    public void toService(View view) {
+        startActivity(new Intent(this, ServiceActivity.class));
     }
 }
