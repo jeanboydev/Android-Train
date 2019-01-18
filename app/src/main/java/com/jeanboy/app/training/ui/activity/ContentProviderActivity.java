@@ -37,6 +37,11 @@ public class ContentProviderActivity extends BaseActivity {
     }
 
     public void toUpdate(View view) {
+        ContentValues values = new ContentValues();
+        values.put("id", 3);
+        values.put("name", "张三三");
+        ContentResolver resolver = getContentResolver();
+        resolver.update(uriUser, values, "id = ?", new String[]{"3"});
     }
 
     public void toSelect(View view) {
@@ -49,5 +54,7 @@ public class ContentProviderActivity extends BaseActivity {
     }
 
     public void toDelete(View view) {
+        ContentResolver resolver = getContentResolver();
+        resolver.delete(uriUser, "id = ?", new String[]{"3"});
     }
 }

@@ -64,12 +64,22 @@ public class MyProvider extends ContentProvider {
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
-        return 0;
+        String table = getTableName(uri);
+        int count = database.delete(table, selection, selectionArgs);
+        if (count > 0) {
+            context.getContentResolver().notifyChange(uri, null);
+        }
+        return count;
     }
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
-        return 0;
+        String table = getTableName(uri);
+        int row = database.update(table, values, selection, selectionArgs);
+        if (row > 0) {
+            context.getContentResolver().notifyChange(uri, null);
+        }
+        return row;
     }
 
     private String getTableName(Uri uri) {
