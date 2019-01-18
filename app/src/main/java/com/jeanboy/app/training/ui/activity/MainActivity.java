@@ -31,4 +31,12 @@ public class MainActivity extends BaseActivity {
     public void toService(View view) {
         startActivity(new Intent(this, ServiceActivity.class));
     }
+
+    public void toBroadcast(View view) {
+        startActivity(new Intent(this, BroadcastActivity.class));
+    }
+
+    public void toContentProvider(View view) {
+        startActivity(new Intent(this, ContentProviderActivity.class));
+    }
 }

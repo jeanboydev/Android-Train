@@ -9,10 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <provider
+            android:name=".ui.provider.MyProvider"
+            android:authorities="com.jeanboy.myprovider"></provider>
+
+        <activity android:name=".ui.activity.ContentProviderActivity"></activity>
+
+        <receiver android:name=".ui.broadcast.MyReceiver">
+            <intent-filter>
+
+                <!-- 注册全局广播，接收开机广播 -->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".ui.activity.BroadcastActivity" />
+
         <service
             android:name=".ui.service.AIDLService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
         <service
             android:name=".ui.service.TestIntentService"
             android:enabled="true"

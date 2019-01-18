@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.MainActivity">
-
+    tools:context=".ui.activity.ContentProviderActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -19,8 +18,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:onClick="toActivity"
-                android:text="Activity"
+                android:onClick="toInsert"
+                android:text="插入数据"
                 android:textAllCaps="false"
                 android:theme="@style/Widget.AppCompat.Button" />
 
@@ -28,40 +27,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
-                android:onClick="toFragment"
-                android:text="Fragment"
+                android:onClick="toUpdate"
+                android:text="更新数据"
                 android:textAllCaps="false"
                 android:theme="@style/Widget.AppCompat.Button" />
-
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
-                android:onClick="toService"
-                android:text="Service"
+                android:onClick="toSelect"
+                android:text="查询数据"
                 android:textAllCaps="false"
                 android:theme="@style/Widget.AppCompat.Button" />
-
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
-                android:onClick="toBroadcast"
-                android:text="Broadcast"
+                android:onClick="toDelete"
+                android:text="删除数据"
                 android:textAllCaps="false"
                 android:theme="@style/Widget.AppCompat.Button" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:onClick="toContentProvider"
-                android:text="ContentProvider"
-                android:textAllCaps="false"
-                android:theme="@style/Widget.AppCompat.Button" />
-
 
         </LinearLayout>
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>
