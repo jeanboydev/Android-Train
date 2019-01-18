@@ -9,7 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.RemoteViewActivity"></activity>
+        <receiver android:name=".ui.widget.TestWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.jeanboy.widget.button.CLICK" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_provider_test" />
+        </receiver>
+
+        <activity android:name=".ui.activity.RemoteViewActivity" />
 
         <provider
             android:name=".ui.provider.MyProvider"

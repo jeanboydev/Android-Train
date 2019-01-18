@@ -1,7 +1,11 @@
 package com.jeanboy.app.training.ui.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.jeanboy.app.training.R;
@@ -14,10 +18,22 @@ public class MainActivity extends BaseActivity {
         return MainActivity.class.getSimpleName();
     }
 
+    public static final String ACTION_BUTTON = "com.jeanboy.widget.button.CLICK";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //AppWidget 接收点击广播事件
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(ACTION_BUTTON);
+        registerReceiver(new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Log.e(TAG, "====widget==onReceive=====");
+            }
+        }, intentFilter);
     }
 
     public void toActivity(View view) {
