@@ -59,4 +59,8 @@ public class MainActivity extends BaseActivity {
     public void toRemoteView(View view) {
         startActivity(new Intent(this, RemoteViewActivity.class));
     }
+
+    public void toPermission(View view) {
+        startActivity(new Intent(this, PermissionActivity.class));
+    }
 }
