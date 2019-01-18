@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.RemoteViewActivity"></activity>
 
         <provider
             android:name=".ui.provider.MyProvider"
-            android:authorities="com.jeanboy.myprovider"></provider>
+            android:authorities="com.jeanboy.myprovider" />
 
-        <activity android:name=".ui.activity.ContentProviderActivity"></activity>
+        <activity android:name=".ui.activity.ContentProviderActivity" />
 
         <receiver android:name=".ui.broadcast.MyReceiver">
             <intent-filter>

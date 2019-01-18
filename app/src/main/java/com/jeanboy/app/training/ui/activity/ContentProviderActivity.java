@@ -1,6 +1,5 @@
 package com.jeanboy.app.training.ui.activity;
 
-import android.content.ContentProvider;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;

@@ -39,4 +39,8 @@ public class MainActivity extends BaseActivity {
     public void toContentProvider(View view) {
         startActivity(new Intent(this, ContentProviderActivity.class));
     }
+
+    public void toRemoteView(View view) {
+        startActivity(new Intent(this, RemoteViewActivity.class));
+    }
 }
