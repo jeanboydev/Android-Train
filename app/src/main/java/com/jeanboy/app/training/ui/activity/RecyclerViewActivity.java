@@ -1,12 +1,16 @@
 package com.jeanboy.app.training.ui.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.jeanboy.app.training.R;
 import com.jeanboy.app.training.base.BaseActivity;
 import com.jeanboy.app.training.ui.adapter.TestRecyclerViewAdapter;
+import com.jeanboy.app.training.ui.decoration.FixedItemDecoration;
+import com.jeanboy.app.training.ui.decoration.TestItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +35,11 @@ public class RecyclerViewActivity extends BaseActivity {
         adapter = new TestRecyclerViewAdapter(dataList);
         rv_container.setLayoutManager(new LinearLayoutManager(this));
         rv_container.setAdapter(adapter);
+        //设置分隔线
+//        rv_container.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        rv_container.addItemDecoration(new FixedItemDecoration(this));
+        //设置增加或删除条目的动画
+        rv_container.setItemAnimator(new DefaultItemAnimator());
 
 
         for (int i = 0; i < 20; i++) {
