@@ -78,6 +78,24 @@
                 android:textAllCaps="false"
                 android:theme="@style/Widget.AppCompat.Button" />
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toListView"
+                android:text="ListView"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toRecyclerView"
+                android:text="RecyclerView"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
         </LinearLayout>
     </ScrollView>
 

@@ -63,4 +63,12 @@ public class MainActivity extends BaseActivity {
     public void toPermission(View view) {
         startActivity(new Intent(this, PermissionActivity.class));
     }
+
+    public void toListView(View view) {
+        startActivity(new Intent(this, ListViewActivity.class));
+    }
+
+    public void toRecyclerView(View view) {
+        startActivity(new Intent(this, RecyclerViewActivity.class));
+    }
 }
