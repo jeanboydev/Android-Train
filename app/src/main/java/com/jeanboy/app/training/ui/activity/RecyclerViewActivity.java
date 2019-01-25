@@ -37,7 +37,7 @@ public class RecyclerViewActivity extends BaseActivity {
         rv_container.setAdapter(adapter);
         //设置分隔线
 //        rv_container.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
-        rv_container.addItemDecoration(new FixedItemDecoration(this));
+//        rv_container.addItemDecoration(new FixedItemDecoration(this));
         //设置增加或删除条目的动画
         rv_container.setItemAnimator(new DefaultItemAnimator());
 
