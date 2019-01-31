@@ -12,6 +12,7 @@ import com.jeanboy.app.training.ui.adapter.TestRecyclerViewAdapter;
 import com.jeanboy.app.training.ui.decoration.FixedItemDecoration;
 import com.jeanboy.app.training.ui.decoration.TestItemDecoration;
 import com.jeanboy.app.training.ui.layoutmanger.FlowLayoutManager;
+import com.jeanboy.app.training.ui.layoutmanger.HorizontalLayoutManger;
 import com.jeanboy.app.training.ui.layoutmanger.TestLayoutManager;
 
 import java.util.ArrayList;
@@ -36,7 +37,8 @@ public class RecyclerViewActivity extends BaseActivity {
         rv_container = findViewById(R.id.rv_container);
         adapter = new TestRecyclerViewAdapter(dataList);
 //        rv_container.setLayoutManager(new LinearLayoutManager(this));
-        rv_container.setLayoutManager(new FlowLayoutManager());
+//        rv_container.setLayoutManager(new FlowLayoutManager());
+        rv_container.setLayoutManager(new HorizontalLayoutManger());
         rv_container.setAdapter(adapter);
         //设置分隔线
 //        rv_container.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
