@@ -39,10 +39,6 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
     }
 
     private void fill(RecyclerView.Recycler recycler, RecyclerView.State state) {
-        fill(recycler, state, 0);
-    }
-
-    private int fill(RecyclerView.Recycler recycler, RecyclerView.State state, int dy) {
         //获取到 RecyclerView 的 padding 为第一个 item 做准备
         int topOffset = getPaddingTop();
         int leftOffset = getPaddingLeft();
@@ -63,37 +59,52 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
                 layoutDecoratedWithMargins(child, leftOffset, topOffset,
                         leftOffset + childHorizontalSpace, topOffset + childVerticalSpace);
 
-                Rect rect = new Rect(leftOffset, topOffset + verticalOffset,
-                        leftOffset + childHorizontalSpace, childVerticalSpace);
-                itemRectArray.put(i, rect);
 
-                leftOffset += childHorizontalSpace;//改变左边偏移量，为下个 item 做准备
-                lineMaxHeight = Math.max(lineMaxHeight, childVerticalSpace);//获取到当前行最大的高度
             } else {//当前行空间不足，放不下
                 leftOffset = getPaddingLeft();//重新获取左边偏移量
                 topOffset += lineMaxHeight;//顶部加上前面的行高
                 lineMaxHeight = 0;
 
-                int parentHeight = getHeight();//RecyclerView 的高度
-                int paddingBottom = getPaddingBottom();//RecyclerView 底部的 padding
-                if (topOffset - dy > parentHeight - paddingBottom) {//滑动的距离超出了底部边界？
-                    Log.e(FlowLayoutManager.class.getSimpleName(), "=====回收========");
-                    removeAndRecycleView(child, recycler);//回收当前 item
-                    lastVisiblePosition = i - 1;
-                } else {
-                    layoutDecoratedWithMargins(child, leftOffset, topOffset,
-                            leftOffset + childHorizontalSpace, topOffset + childVerticalSpace);
+                layoutDecoratedWithMargins(child, leftOffset, topOffset,
+                        leftOffset + childHorizontalSpace, topOffset + childVerticalSpace);
+            }
+            Rect rect = new Rect(leftOffset, topOffset + verticalOffset,
+                    leftOffset + childHorizontalSpace,
+                    topOffset + childVerticalSpace + verticalOffset);
+            itemRectArray.put(i, rect);
 
-                    Rect rect = new Rect(leftOffset, topOffset + verticalOffset,
-                            leftOffset + childHorizontalSpace, childVerticalSpace);
-                    itemRectArray.put(i, rect);
+            leftOffset += childHorizontalSpace;//改变左边偏移量，为下个 item 做准备
+            lineMaxHeight = Math.max(lineMaxHeight, childVerticalSpace);//获取到当前行最大的高度
+        }
+    }
 
-                    leftOffset += childHorizontalSpace;//改变左边偏移量，为下个 item 做准备
-                    lineMaxHeight = Math.max(lineMaxHeight, childVerticalSpace);//获取到当前行最大的高度
-                }
+    private Rect getVisibleRect() {
+        return new Rect(getPaddingLeft(), getPaddingTop() + verticalOffset,
+                getWidth() + verticalOffset + getPaddingBottom(),
+                getVerticalVisibleHeight() + verticalOffset);
+    }
+
+    private int getVerticalVisibleHeight() {
+        return getHeight() - getPaddingTop() - getPaddingBottom();
+    }
+
+    private void handleRecycle(RecyclerView.Recycler recycler, RecyclerView.State state) {
+        detachAndScrapAttachedViews(recycler);
+        Rect visibleRect = getVisibleRect();
+        for (int i = 0; i < getItemCount(); i++) {
+            View child = recycler.getViewForPosition(i);//取出一个 itemView
+            Rect rect = itemRectArray.get(i);
+            if (Rect.intersects(visibleRect, rect)) {
+                Log.e(FlowLayoutManager.class.getSimpleName(),"=====handleRecycle==不回收====");
+                addView(child);//添加到 RecyclerView 上
+                measureChildWithMargins(child, 0, 0);//测量一下 childView 的大小
+                layoutDecoratedWithMargins(child, rect.left, rect.top - verticalOffset, rect.right,
+                        rect.bottom - verticalOffset);
+            } else {
+                Log.e(FlowLayoutManager.class.getSimpleName(),"=====handleRecycle==回收====");
+                removeAndRecycleView(child, recycler);
             }
         }
-        return dy;
     }
 
     /**
@@ -165,7 +176,7 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
                 }
             }
         }
-        realOffset = fill(recycler, state, realOffset);//先填充，再移动
+        handleRecycle(recycler, state);//先填充，再移动
         verticalOffset += realOffset;//累加滑动距离
         offsetChildrenVertical(-realOffset);//垂直方向移动所有的子 View
         return realOffset;
