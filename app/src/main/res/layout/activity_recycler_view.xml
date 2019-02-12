@@ -7,10 +7,33 @@
     android:background="#303030"
     tools:context=".ui.activity.RecyclerViewActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_container"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:onClick="toHorizontalLayout"
+                android:text="HorizontalLayoutManager"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toCardLayout"
+                android:text="CardLayoutManager"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+        </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

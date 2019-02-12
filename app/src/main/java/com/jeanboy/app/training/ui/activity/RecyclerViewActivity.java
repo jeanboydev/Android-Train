@@ -1,22 +1,11 @@
 package com.jeanboy.app.training.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.jeanboy.app.training.R;
 import com.jeanboy.app.training.base.BaseActivity;
-import com.jeanboy.app.training.ui.adapter.TestRecyclerViewAdapter;
-import com.jeanboy.app.training.ui.decoration.FixedItemDecoration;
-import com.jeanboy.app.training.ui.decoration.TestItemDecoration;
-import com.jeanboy.app.training.ui.layoutmanger.FlowLayoutManager;
-import com.jeanboy.app.training.ui.layoutmanger.HorizontalLayoutManger;
-import com.jeanboy.app.training.ui.layoutmanger.TestLayoutManager;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class RecyclerViewActivity extends BaseActivity {
 
@@ -26,30 +15,17 @@ public class RecyclerViewActivity extends BaseActivity {
     }
 
 
-    private RecyclerView rv_container;
-    private TestRecyclerViewAdapter adapter;
-    private List<String> dataList = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
-        rv_container = findViewById(R.id.rv_container);
-        adapter = new TestRecyclerViewAdapter(dataList);
-//        rv_container.setLayoutManager(new LinearLayoutManager(this));
-//        rv_container.setLayoutManager(new FlowLayoutManager());
-        rv_container.setLayoutManager(new HorizontalLayoutManger());
-        rv_container.setAdapter(adapter);
-        //设置分隔线
-//        rv_container.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
-//        rv_container.addItemDecoration(new FixedItemDecoration(this));
-        //设置增加或删除条目的动画
-        rv_container.setItemAnimator(new DefaultItemAnimator());
+    }
 
+    public void toHorizontalLayout(View view) {
+        startActivity(new Intent(this, LayoutHorizontalActivity.class));
+    }
 
-        for (int i = 0; i < 20; i++) {
-            dataList.add("这是标题" + i);
-        }
-        adapter.notifyDataSetChanged();
+    public void toCardLayout(View view) {
+        startActivity(new Intent(this, LayoutCardActivity.class));
     }
 }
