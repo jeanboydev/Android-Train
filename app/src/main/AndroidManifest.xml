@@ -12,7 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.LayoutCardActivity"></activity>
+        <activity android:name=".ui.activity.MdDrawerLayoutActivity"></activity>
+        <activity
+            android:name=".ui.activity.MdToolbarActivity"
+            android:label="Toolbar 示例" />
+        <activity android:name=".ui.activity.MaterialDesignActivity" />
+        <activity android:name=".ui.activity.LayoutCardActivity" />
         <activity android:name=".ui.activity.LayoutHorizontalActivity" />
         <activity android:name=".ui.activity.RecyclerViewActivity" />
         <activity android:name=".ui.activity.ListViewActivity" />

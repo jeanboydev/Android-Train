@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/backup"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Backup" />
+        <item
+            android:id="@+id/delete"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Delete" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Settings" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/other"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Other" />
+    </group>
+</menu>

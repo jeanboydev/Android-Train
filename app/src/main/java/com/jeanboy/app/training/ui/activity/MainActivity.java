@@ -71,4 +71,8 @@ public class MainActivity extends BaseActivity {
     public void toRecyclerView(View view) {
         startActivity(new Intent(this, RecyclerViewActivity.class));
     }
+
+    public void toMaterialDesign(View view) {
+        startActivity(new Intent(this, MaterialDesignActivity.class));
+    }
 }
