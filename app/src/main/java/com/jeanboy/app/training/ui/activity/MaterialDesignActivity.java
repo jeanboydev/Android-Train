@@ -44,4 +44,8 @@ public class MaterialDesignActivity extends BaseActivity {
     public void toCollapsingToolbarLayout(View view) {
         startActivity(new Intent(this, MdCollapsingToolbarLayoutActivity.class));
     }
+
+    public void toSheetBottom(View view) {
+        startActivity(new Intent(this, MdSheetBottomActivity.class));
+    }
 }

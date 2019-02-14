@@ -12,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.MdSheetBottomActivity"></activity>
         <activity
             android:name=".ui.activity.MdCollapsingToolbarLayoutActivity"
-            android:theme="@style/CollapsingActivityTheme"></activity>
+            android:theme="@style/CollapsingActivityTheme" />
         <activity android:name=".ui.activity.MdAppBarLayoutActivity" />
         <activity android:name=".ui.activity.MdCardViewActivity" />
         <activity android:name=".ui.activity.MdFloatingActionButtonActivity" />
