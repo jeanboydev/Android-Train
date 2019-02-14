@@ -8,6 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CollapsingActivityTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
     <!-- 透明主题的 Activity -->
     <style name="translucent" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@color/translucent_background</item>

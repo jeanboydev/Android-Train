@@ -28,4 +28,20 @@ public class MaterialDesignActivity extends BaseActivity {
     public void toDrawerLayout(View view) {
         startActivity(new Intent(this, MdDrawerLayoutActivity.class));
     }
+
+    public void toFloatingActionButton(View view) {
+        startActivity(new Intent(this, MdFloatingActionButtonActivity.class));
+    }
+
+    public void toCardView(View view) {
+        startActivity(new Intent(this, MdCardViewActivity.class));
+    }
+
+    public void toAppBarLayout(View view) {
+        startActivity(new Intent(this, MdAppBarLayoutActivity.class));
+    }
+
+    public void toCollapsingToolbarLayout(View view) {
+        startActivity(new Intent(this, MdCollapsingToolbarLayoutActivity.class));
+    }
 }

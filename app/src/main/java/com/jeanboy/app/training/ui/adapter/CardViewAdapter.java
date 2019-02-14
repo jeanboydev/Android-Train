@@ -13,25 +13,25 @@ import com.jeanboy.app.training.utils.DensityUtil;
 
 import java.util.List;
 
-public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerViewAdapter.MyHolder> {
+public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.MyHolder> {
 
     private final List<String> dataList;
 
-    public CardRecyclerViewAdapter(List<String> dataList) {
+    public CardViewAdapter(List<String> dataList) {
         this.dataList = dataList;
     }
 
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.e(CardRecyclerViewAdapter.class.getSimpleName(),"======onCreateViewHolder=======");
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card_layout, parent, false);
+        Log.e(CardViewAdapter.class.getSimpleName(), "======onCreateViewHolder=======");
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card_view, parent, false);
         return new MyHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        Log.e(CardRecyclerViewAdapter.class.getSimpleName(),"======onBindViewHolder=======");
+        Log.e(CardViewAdapter.class.getSimpleName(), "======onBindViewHolder=======");
         holder.tv_title.setText(dataList.get(position));
     }
 
@@ -47,8 +47,6 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
         MyHolder(View itemView) {
             super(itemView);
             tv_title = itemView.findViewById(R.id.tv_title);
-            itemView.setLayoutParams(new ViewGroup.LayoutParams(DensityUtil.dp2px(itemView.getContext(), 100),
-                    DensityUtil.dp2px(itemView.getContext(), 100)));
             itemView.setOnClickListener(onItemClickListener);
         }
     }
