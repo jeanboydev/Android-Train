@@ -79,6 +79,15 @@
                 android:textAllCaps="false"
                 android:theme="@style/Widget.AppCompat.Button" />
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toTabLayout"
+                android:text="TabLayout"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
