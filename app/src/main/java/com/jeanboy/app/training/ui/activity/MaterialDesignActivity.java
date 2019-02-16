@@ -52,6 +52,4 @@ public class MaterialDesignActivity extends BaseActivity {
     public void toTabLayout(View view) {
         startActivity(new Intent(this, MdTabLayoutActivity.class));
     }
-
-    View
 }
