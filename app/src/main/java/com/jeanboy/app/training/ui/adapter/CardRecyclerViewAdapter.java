@@ -24,14 +24,14 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.e(CardRecyclerViewAdapter.class.getSimpleName(),"======onCreateViewHolder=======");
+        Log.e(CardRecyclerViewAdapter.class.getSimpleName(), "======onCreateViewHolder=======");
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card_layout, parent, false);
         return new MyHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        Log.e(CardRecyclerViewAdapter.class.getSimpleName(),"======onBindViewHolder=======");
+        Log.e(CardRecyclerViewAdapter.class.getSimpleName(), "======onBindViewHolder=======");
         holder.tv_title.setText(dataList.get(position));
     }
 

@@ -86,7 +86,9 @@
             android:name=".ui.activity.ScreenConfigActivity"
             android:configChanges="orientation|keyboardHidden" />
         <activity android:name=".ui.activity.TestActivity" />
-        <activity android:name=".ui.activity.MainActivity">
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:persistableMode="persistAcrossReboots">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
