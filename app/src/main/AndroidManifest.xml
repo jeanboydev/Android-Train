@@ -12,7 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.MdTabLayoutActivity"></activity>
+        <activity android:name=".ui.activity.TaskAffinity3Activity"></activity>
+        <activity android:name=".ui.activity.TaskAffinity2Activity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.jeanboy.app.activity.task2"/>
+        <activity android:name=".ui.activity.TaskAffinityActivity" />
+        <activity android:name=".ui.activity.MdTabLayoutActivity" />
         <activity android:name=".ui.activity.MdSheetBottomActivity" />
         <activity
             android:name=".ui.activity.MdCollapsingToolbarLayoutActivity"

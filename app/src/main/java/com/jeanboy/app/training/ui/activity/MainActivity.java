@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -12,6 +14,8 @@ import android.view.View;
 
 import com.jeanboy.app.training.R;
 import com.jeanboy.app.training.base.BaseActivity;
+
+import java.util.LinkedList;
 
 public class MainActivity extends BaseActivity {
 
@@ -21,6 +25,18 @@ public class MainActivity extends BaseActivity {
     }
 
     public static final String ACTION_BUTTON = "com.jeanboy.widget.button.CLICK";
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 0:
+                    //TODO: 处理消息
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +52,38 @@ public class MainActivity extends BaseActivity {
                 Log.e(TAG, "====widget==onReceive=====");
             }
         }, intentFilter);
+
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                // 运行在子线程中...
+            }
+        });
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Message message = new Message();
+                message.what = 0;
+                message.obj = "测试消息";
+                // 发送消息
+                handler.sendMessage(message);
+            }
+        }).start();
+
+        LinkedList<String> dataList = new LinkedList<>(); // 创建 LinkedList
+        dataList.add("test"); // 添加数据
+        dataList.add(1, "test1"); // 指定位置，添加数据
+        dataList.addFirst("first"); // 添加数据到头部
+        dataList.addLast("last"); // 添加数据到尾部
+        dataList.get(0); // 获取指定位置数据
+        dataList.getFirst(); // 获取头部数据
+        dataList.getLast(); // 获取尾部数据
+        dataList.remove(1); // 移除指定位置的数据
+        dataList.removeFirst(); // 移除头部数据
+        dataList.removeLast(); // 移除尾部数据
+        dataList.clear(); // 清空数据
     }
 
     @Override
@@ -46,6 +94,11 @@ public class MainActivity extends BaseActivity {
 
     public void toActivity(View view) {
         startActivity(new Intent(this, TestActivity.class));
+    }
+
+
+    public void toActivityTaskAffinity(View view) {
+        startActivity(new Intent(this, TaskAffinityActivity.class));
     }
 
     public void toFragment(View view) {
