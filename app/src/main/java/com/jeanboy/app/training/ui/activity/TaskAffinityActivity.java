@@ -24,6 +24,8 @@ public class TaskAffinityActivity extends BaseActivity {
     }
 
     public void toJump(View view) {
-        startActivity(new Intent(this, TaskAffinity2Activity.class));
+        Intent intent = new Intent(this, TaskAffinity2Activity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }

@@ -5,16 +5,20 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
 import com.jeanboy.app.training.R;
 import com.jeanboy.app.training.base.BaseActivity;
+import com.jeanboy.app.training.ui.provider.DataObserver;
 
 public class ContentProviderActivity extends BaseActivity {
 
 
     private Uri uriUser = Uri.parse("content://com.jeanboy.myprovider/user");
+
+    private DataObserver dataObserver;
 
     @Override
     protected String getTAG() {
@@ -25,6 +29,15 @@ public class ContentProviderActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content_provider);
+
+        dataObserver = new DataObserver(new Handler());
+        getContentResolver().registerContentObserver(uriUser, true, dataObserver);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        getContentResolver().unregisterContentObserver(dataObserver);
     }
 
     public void toInsert(View view) {
