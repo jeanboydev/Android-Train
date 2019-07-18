@@ -54,36 +54,36 @@ public class MainActivity extends BaseActivity {
         }, intentFilter);
 
 
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                // 运行在子线程中...
-            }
-        });
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Message message = new Message();
-                message.what = 0;
-                message.obj = "测试消息";
-                // 发送消息
-                handler.sendMessage(message);
-            }
-        }).start();
-
-        LinkedList<String> dataList = new LinkedList<>(); // 创建 LinkedList
-        dataList.add("test"); // 添加数据
-        dataList.add(1, "test1"); // 指定位置，添加数据
-        dataList.addFirst("first"); // 添加数据到头部
-        dataList.addLast("last"); // 添加数据到尾部
-        dataList.get(0); // 获取指定位置数据
-        dataList.getFirst(); // 获取头部数据
-        dataList.getLast(); // 获取尾部数据
-        dataList.remove(1); // 移除指定位置的数据
-        dataList.removeFirst(); // 移除头部数据
-        dataList.removeLast(); // 移除尾部数据
-        dataList.clear(); // 清空数据
+//        handler.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                // 运行在子线程中...
+//            }
+//        });
+//
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Message message = new Message();
+//                message.what = 0;
+//                message.obj = "测试消息";
+//                // 发送消息
+//                handler.sendMessage(message);
+//            }
+//        }).start();
+//
+//        LinkedList<String> dataList = new LinkedList<>(); // 创建 LinkedList
+//        dataList.add("test"); // 添加数据
+//        dataList.add(1, "test1"); // 指定位置，添加数据
+//        dataList.addFirst("first"); // 添加数据到头部
+//        dataList.addLast("last"); // 添加数据到尾部
+//        dataList.get(0); // 获取指定位置数据
+//        dataList.getFirst(); // 获取头部数据
+//        dataList.getLast(); // 获取尾部数据
+//        dataList.remove(1); // 移除指定位置的数据
+//        dataList.removeFirst(); // 移除头部数据
+//        dataList.removeLast(); // 移除尾部数据
+//        dataList.clear(); // 清空数据
     }
 
     @Override
@@ -135,5 +135,9 @@ public class MainActivity extends BaseActivity {
 
     public void toMaterialDesign(View view) {
         startActivity(new Intent(this, MaterialDesignActivity.class));
+    }
+
+    public void toPatch(View view) {
+        startActivity(new Intent(this, PatchActivity.class));
     }
 }
