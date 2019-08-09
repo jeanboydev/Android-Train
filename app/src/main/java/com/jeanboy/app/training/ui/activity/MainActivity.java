@@ -1,5 +1,6 @@
 package com.jeanboy.app.training.ui.activity;
 
+import android.app.IntentService;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -9,13 +10,17 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.util.ArrayMap;
 import android.util.Log;
+import android.util.SparseArray;
+import android.util.SparseBooleanArray;
 import android.view.View;
 
 import com.jeanboy.app.training.R;
 import com.jeanboy.app.training.base.BaseActivity;
 
 import java.util.LinkedList;
+import java.util.concurrent.Executors;
 
 public class MainActivity extends BaseActivity {
 
@@ -84,6 +89,17 @@ public class MainActivity extends BaseActivity {
 //        dataList.removeFirst(); // 移除头部数据
 //        dataList.removeLast(); // 移除尾部数据
 //        dataList.clear(); // 清空数据
+
+//        SparseArray sparseArray = new SparseArray();
+//        sparseArray.append(1,"aaaa");
+//        sparseArray.get(1);
+//        sparseArray.remove(1);
+//
+//        ArrayMap<String, String> arrayMap = new ArrayMap<>();
+//        arrayMap.put("test","haha");
+//        arrayMap.get("test");
+//        arrayMap.remove("test");
+
     }
 
     @Override
