@@ -28,6 +28,14 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:onClick="toActivityTaskAffinity"
+                android:text="Activity TaskAffinity"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
                 android:layout_marginTop="10dp"
                 android:onClick="toFragment"
                 android:text="Fragment"
@@ -103,6 +111,15 @@
                 android:layout_marginTop="10dp"
                 android:onClick="toMaterialDesign"
                 android:text="Material Design"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:onClick="toPatch"
+                android:text="Patch"
                 android:textAllCaps="false"
                 android:theme="@style/Widget.AppCompat.Button" />
 

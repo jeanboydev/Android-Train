@@ -17,6 +17,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.NetworkActivity"></activity>
+        <activity android:name=".ui.activity.PatchActivity"></activity>
+        <activity android:name=".ui.activity.TaskAffinity3Activity" />
+        <activity
+            android:name=".ui.activity.TaskAffinity2Activity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.jeanboy.app.activity.task2" />
+        <activity
+            android:name=".ui.activity.TaskAffinityActivity"
+            android:allowTaskReparenting="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.jeanboy.task.test" />
         <activity android:name=".ui.activity.MdTabLayoutActivity" />
         <activity android:name=".ui.activity.MdSheetBottomActivity" />
         <activity
