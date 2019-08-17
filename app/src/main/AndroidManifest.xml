@@ -5,6 +5,10 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.MdTabLayoutActivity"></activity>
+        <activity android:name=".ui.activity.NetworkActivity"></activity>
+        <activity android:name=".ui.activity.MdTabLayoutActivity" />
         <activity android:name=".ui.activity.MdSheetBottomActivity" />
         <activity
             android:name=".ui.activity.MdCollapsingToolbarLayoutActivity"
@@ -50,12 +55,20 @@
 
         <activity android:name=".ui.activity.ContentProviderActivity" />
 
-        <receiver android:name=".ui.broadcast.MyReceiver">
+        <receiver android:name=".ui.broadcast.NetworkReceiver">
             <intent-filter>
-
-                <!-- 注册全局广播，接收开机广播 -->
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
             </intent-filter>
+        </receiver>
+
+        <receiver android:name=".ui.broadcast.MyReceiver">
+
+            <!-- <intent-filter> -->
+            <!-- 注册全局广播，接收开机广播 -->
+            <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
+            <!-- </intent-filter> -->
         </receiver>
 
         <activity android:name=".ui.activity.BroadcastActivity" />
@@ -75,7 +88,10 @@
         <service
             android:name=".ui.service.TestService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true">
+
+            <!-- <intent-filter android:priority="1000"/> -->
+        </service>
 
         <activity android:name=".ui.activity.ServiceActivity" />
         <activity android:name=".ui.activity.FragmentActivity" />

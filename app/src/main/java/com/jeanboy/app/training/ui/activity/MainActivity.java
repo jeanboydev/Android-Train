@@ -1,10 +1,12 @@
 package com.jeanboy.app.training.ui.activity;
 
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -12,6 +14,9 @@ import android.view.View;
 
 import com.jeanboy.app.training.R;
 import com.jeanboy.app.training.base.BaseActivity;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
@@ -36,6 +41,20 @@ public class MainActivity extends BaseActivity {
                 Log.e(TAG, "====widget==onReceive=====");
             }
         }, intentFilter);
+
+        LinkedList<String> dataList = new LinkedList<>(); // 创建 LinkedList
+        dataList.add("test"); // 添加数据
+        dataList.add(1, "test1"); // 指定位置，添加数据
+        dataList.addFirst("first"); // 添加数据到头部
+        dataList.addLast("last"); // 添加数据到尾部
+        dataList.get(0); // 获取指定位置数据
+        dataList.getFirst(); // 获取头部数据
+        dataList.getLast(); // 获取尾部数据
+        dataList.remove(0); // 移除指定位置的数据
+        dataList.removeFirst(); // 移除头部数据
+        dataList.removeLast(); // 移除尾部数据
+        dataList.clear(); // 清空数据
+
     }
 
     @Override
@@ -82,5 +101,9 @@ public class MainActivity extends BaseActivity {
 
     public void toMaterialDesign(View view) {
         startActivity(new Intent(this, MaterialDesignActivity.class));
+    }
+
+    public void toNetworkState(View view) {
+        startActivity(new Intent(this, NetworkActivity.class));
     }
 }
