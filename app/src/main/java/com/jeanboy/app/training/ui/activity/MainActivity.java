@@ -4,16 +4,20 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.util.LruCache;
 import android.view.View;
 
 import com.jeanboy.app.training.R;
 import com.jeanboy.app.training.base.BaseActivity;
+
+import java.util.LinkedHashSet;
 
 
 public class MainActivity extends BaseActivity {
@@ -52,6 +56,7 @@ public class MainActivity extends BaseActivity {
             }
         }, intentFilter);
 
+
 //        LinkedList<String> dataList = new LinkedList<>(); // 创建 LinkedList
 //        dataList.add("test"); // 添加数据
 //        dataList.add(1, "test1"); // 指定位置，添加数据
@@ -72,16 +77,22 @@ public class MainActivity extends BaseActivity {
 //            }
 //        });
 //
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                Message message = new Message();
-//                message.what = 0;
-//                message.obj = "测试消息";
-//                // 发送消息
-//                handler.sendMessage(message);
-//            }
-//        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Message message = handler.obtainMessage();
+                message.what = 0;
+                message.obj = "测试消息";
+                // 发送消息
+                handler.sendMessage(message);
+            }
+        }).start();
+
+        ThreadLocal<String> threadLocal = new ThreadLocal<>();
+        threadLocal.set("aaa");
+        threadLocal.get();
+
+
 //
 //        LinkedList<String> dataList = new LinkedList<>(); // 创建 LinkedList
 //        dataList.add("test"); // 添加数据
@@ -165,5 +176,9 @@ public class MainActivity extends BaseActivity {
 
     public void toNetworkState(View view) {
         startActivity(new Intent(this, NetworkActivity.class));
+    }
+
+    public void toView(View view) {
+        startActivity(new Intent(this, ViewActivity.class));
     }
 }

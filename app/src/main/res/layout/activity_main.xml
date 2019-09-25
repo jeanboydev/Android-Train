@@ -73,6 +73,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
+                android:onClick="toView"
+                android:text="View"
+                android:textAllCaps="false"
+                android:theme="@style/Widget.AppCompat.Button" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
                 android:onClick="toRemoteView"
                 android:text="RemoteView"
                 android:textAllCaps="false"
