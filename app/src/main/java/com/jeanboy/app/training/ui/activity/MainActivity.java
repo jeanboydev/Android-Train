@@ -181,4 +181,8 @@ public class MainActivity extends BaseActivity {
     public void toView(View view) {
         startActivity(new Intent(this, ViewActivity.class));
     }
+
+    public void toAnimButton(View view) {
+        startActivity(new Intent(this, AnimButtonActivity.class));
+    }
 }

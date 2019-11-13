@@ -6,4 +6,8 @@
 
 
     <color name="translucent_background">#00000000</color>
+
+
+    <color name="bg_action_red">#bf370d</color>
+    <color name="bg_action_blue">#00A9F4</color>
 </resources>

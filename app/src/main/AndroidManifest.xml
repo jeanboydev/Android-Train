@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jeanboy.app.training">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.ViewActivity"></activity>
+        <activity android:name=".ui.activity.AnimButtonActivity"></activity>
+        <activity android:name=".ui.activity.ViewActivity" />
         <activity android:name=".ui.activity.NetworkActivity" />
         <activity android:name=".ui.activity.PatchActivity" />
         <activity android:name=".ui.activity.TaskAffinity3Activity" />
@@ -40,24 +47,17 @@
         <activity android:name=".ui.activity.RecyclerViewActivity" />
         <activity android:name=".ui.activity.ListViewActivity" />
         <activity android:name=".ui.activity.PermissionActivity" />
-
         <activity android:name=".ui.activity.RemoteViewActivity" />
-
         <activity android:name=".ui.activity.ContentProviderActivity" />
-
         <activity android:name=".ui.activity.BroadcastActivity" />
-
         <activity android:name=".ui.activity.ServiceActivity" />
-
         <activity android:name=".ui.activity.FragmentActivity" />
         <activity
             android:name=".ui.activity.TransparentActivity"
             android:theme="@style/translucent" />
-
         <activity
             android:name=".ui.activity.ScreenConfigActivity"
             android:configChanges="orientation|keyboardHidden" />
-
         <activity android:name=".ui.activity.TestActivity" />
         <activity
             android:name=".ui.activity.MainActivity"
@@ -68,9 +68,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
             android:name=".ui.provider.MyProvider"
             android:authorities="com.jeanboy.myprovider" />
+
         <receiver android:name=".ui.widget.TestWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -81,7 +83,6 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/app_widget_provider_test" />
         </receiver>
-
         <receiver android:name=".ui.broadcast.NetworkReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -96,6 +97,7 @@
             <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
             <!-- </intent-filter> -->
         </receiver>
+
         <service
             android:name=".ui.service.AIDLService"
             android:enabled="true"
@@ -116,11 +118,5 @@
             <!-- <intent-filter android:priority="1000"/> -->
         </service>
     </application>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>
