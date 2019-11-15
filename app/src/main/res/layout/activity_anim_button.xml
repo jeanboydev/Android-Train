@@ -14,7 +14,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerInParent="true"
-        android:background="@drawable/bg_action_red">
+        android:background="@drawable/bg_action_red"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/iv_icon_before"
@@ -33,5 +34,20 @@
             android:src="@drawable/ic_search_market" />
 
     </FrameLayout>
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/iv_anim"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_centerInParent="true"-->
+    <!--        android:src="@drawable/animated_android" />  -->
+
+
+    <com.eftimoff.androipathview.PathView
+        android:id="@+id/iv_anim"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:layout_centerInParent="true"
+        app:svg="@raw/path_ready" />
 
 </RelativeLayout>

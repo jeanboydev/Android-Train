@@ -3,13 +3,17 @@ package com.jeanboy.app.training.ui.activity;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
+import com.eftimoff.androipathview.PathView;
 import com.jeanboy.app.training.R;
 import com.jeanboy.app.training.base.BaseActivity;
 
@@ -19,6 +23,8 @@ public class AnimButtonActivity extends BaseActivity {
     private ImageView iv_icon_before, iv_icon_after;
 
     private boolean isTransformed = false;
+
+    private PathView iv_anim;
 
     @Override
     protected String getTAG() {
@@ -30,22 +36,35 @@ public class AnimButtonActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anim_button);
 
-        btn_action = findViewById(R.id.btn_action);
-        iv_icon_before = findViewById(R.id.iv_icon_before);
-        iv_icon_after = findViewById(R.id.iv_icon_after);
+        iv_anim = findViewById(R.id.iv_anim);
 
+        iv_anim.useNaturalColors();
+        iv_anim.getPathAnimator()
+                .delay(100)
+                .duration(5000)
+                .interpolator(new LinearInterpolator())
+                .start();
 
-        btn_action.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isTransformed) {
-                    revertAnim();
-                } else {
-                    startAnim();
-                }
-                isTransformed = !isTransformed;
-            }
-        });
+//        AnimatedVectorDrawable drawable = (AnimatedVectorDrawable) getResources().getDrawable(R.drawable.animated_path_ready);
+//        iv_anim.setImageDrawable(drawable);
+//        drawable.start();
+
+//        btn_action = findViewById(R.id.btn_action);
+//        iv_icon_before = findViewById(R.id.iv_icon_before);
+//        iv_icon_after = findViewById(R.id.iv_icon_after);
+//
+//
+//        btn_action.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (isTransformed) {
+//                    revertAnim();
+//                } else {
+//                    startAnim();
+//                }
+//                isTransformed = !isTransformed;
+//            }
+//        });
     }
 
     private void startAnim() {
